@@ -19,4 +19,3 @@ O projeto é composto por dois arquivos principais:
 ### Funcionalidade Dinâmica
 
 - **JavaScript**: Adicionado para permitir a adição e remoção dinâmica de tarefas.
-
