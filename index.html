@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Flexível - Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <img src="https://via.placeholder.com/100" alt="Ícone padrão">
+            <h2>Nome Genérico</h2>
+            <p>Este é um texto exemplo no menu esquerdo. Pode ser substituído por qualquer conteúdo desejado.</p>
+            <ul>
+                <li><a href="#">Link1</a></li>
+                <li><a href="#">Link2</a></li>
+                <li><a href="#">Link3</a></li>
+                <li><a href="#">Link4</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Lista de Tarefas</h1>
+            <div class="task-table">
+                <div class="task-lista" id="dia-tasks">
+                    <h2>Dia</h2>
+                    <ol id="dia-lista">
+                        <li>Revisar planejamento</li>
+                        <li>Insights</li>
+                        <li>Codar</li>
+                    </ol>
+                    <button onclick="addTask('dia-lista')">Adicionar Tarefa</button>
+                    <button onclick="removeTask('dia-lista')">Remover Tarefa</button>
+                </div>
+                <div class="task-lista" id="noite-tasks">
+                    <h2>Noite</h2>
+                    <ol id="noite-lista">
+                        <li>Planejamento do dia seguinte</li>
+                        <li>Leitura</li>
+                        <li>Dormir</li>
+                    </ol>
+                    <button onclick="addTask('noite-lista')">Adicionar Tarefa</button>
+                    <button onclick="removeTask('noite-lista')">Remover Tarefa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addTask(listaId) {
+            const task = prompt("Digite a nova tarefa:");
+            if (task) {
+                const lista = document.getElementById(listaId);
+                const listaItem = document.createElement("li");
+                listaItem.textContent = task;
+                lista.appendChild(listaItem);
+            }
+        }
+
+        function removeTask(listaId) {
+            const lista = document.getElementById(listaId);
+            if (lista.lastElementChild) {
+                lista.removeChild(lista.lastElementChild);
+            } else {
+                alert("Não há tarefas para remover.");
+            }
+        }
+    </script>
+</body>
+</html>
